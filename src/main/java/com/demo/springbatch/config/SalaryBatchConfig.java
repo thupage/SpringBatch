@@ -10,6 +10,7 @@ import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 /**
  * Salary Batch Config.
  * 
@@ -31,7 +32,7 @@ public class SalaryBatchConfig {
     @Autowired
     SalaryItemWriter salaryItemWriter;
 
-    //Initialize "SalaryProcessor".
+    // Initialize "SalaryProcessor".
     @Bean
     public SalaryProcessor processor() {
         return new SalaryProcessor();
@@ -45,11 +46,11 @@ public class SalaryBatchConfig {
     @Bean
     public Step salaryFilterStep() {
         return stepBuilderFactory.get("salaryFilterStep")
-                .<Salary, Salary>chunk(10) //Set the maximum number of processing elements in each batch to 10.
+                .<Salary, Salary>chunk(10) // Set the maximum number of processing elements in each batch to 10.
                 .reader(salaryItemReader)
                 .processor(processor())
                 .writer(salaryItemWriter)
-                .build(); //Finish the configuration of step.
+                .build(); // Finish the configuration of step.
     }
 
     /**
@@ -63,6 +64,6 @@ public class SalaryBatchConfig {
                 .incrementer(new RunIdIncrementer())
                 .flow(salaryFilterStep())
                 .end()
-                .build(); //Finish the configuration of job.
+                .build(); // Finish the configuration of job.
     }
 }
