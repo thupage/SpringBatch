@@ -6,6 +6,7 @@ import org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor;
 import org.springframework.batch.item.file.transform.DelimitedLineAggregator;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Component;
+
 /**
  * Configure SalaryItemWriter.
  * 
