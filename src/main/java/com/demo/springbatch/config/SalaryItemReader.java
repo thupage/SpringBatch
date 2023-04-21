@@ -5,6 +5,7 @@ import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.stereotype.Component;
 import com.demo.springbatch.entity.Salary;
+import com.demo.springbatch.reponsitories.SalaryRowMapper;
 
 /**
  * Configure SalaryItemReader.
